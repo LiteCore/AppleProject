@@ -14,4 +14,10 @@ namespace AppleProject.Enums
         Rare = 3,
         Legendary = 4
     }
+    enum WeaponType
+    {
+        Automatic = 1,
+        Semi = 2,
+        Single = 3
+    }
 }
