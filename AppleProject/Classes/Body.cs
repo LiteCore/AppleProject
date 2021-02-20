@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppleProject.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,13 +23,13 @@ namespace AppleProject.Classes
             random = new Random();
             Limbs = new(
                 new Limb[] {
-                    new(this, "Head", 35, true),
-                    new(this, "Chest", 80, true),
-                    new(this, "Stomach", 65),
-                    new(this, "Left hand", 35, false, true),
-                    new(this, "Right hand", 35, false, true),
-                    new(this, "Left leg", 45, false, true),
-                    new(this, "Right leg", 45, false, true)});
+                    new(this, "Head", 35, ProtectionZoneType.Head, true),
+                    new(this, "Chest", 80, ProtectionZoneType.Chest, true),
+                    new(this, "Stomach", 65, ProtectionZoneType.Stomach),
+                    new(this, "Left hand", 35, ProtectionZoneType.Hand, false, true),
+                    new(this, "Right hand", 35, ProtectionZoneType.Hand, false, true),
+                    new(this, "Left leg", 45, ProtectionZoneType.Leg, false, true),
+                    new(this, "Right leg", 45, ProtectionZoneType.Leg, false, true)});
             Temperature = 36.6f;
             MaxHealth = GetMaxHealth();
             Health = GetHealth();
@@ -139,8 +140,9 @@ namespace AppleProject.Classes
         public bool OutsideLimb { get; set; }
         public int Health { get; set; }
         public int MaxHealth { get; set; }
+        public ProtectionZoneType ProtectionZone { get; set; }
 
-        public Limb(Body body, string name, int maxHealth, bool important = false, bool outsideLimb = false)
+        public Limb(Body body, string name, int maxHealth, ProtectionZoneType zone, bool important = false, bool outsideLimb = false)
         {
             Body = body;
             Name = name;
@@ -148,6 +150,7 @@ namespace AppleProject.Classes
             Health = maxHealth;
             Important = important;
             OutsideLimb = outsideLimb;
+            ProtectionZone = zone;
         }
         public void SetNecrosis()
         {

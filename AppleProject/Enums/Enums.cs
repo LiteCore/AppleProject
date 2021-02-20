@@ -20,4 +20,12 @@ namespace AppleProject.Enums
         Semi = 2,
         Single = 3
     }
+    enum ProtectionZoneType
+    {
+        Head = 1,
+        Chest = 2,
+        Hand = 3,
+        Stomach = 4,
+        Leg = 5
+    }
 }

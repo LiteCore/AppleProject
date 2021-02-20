@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace AppleProject.Classes
 {
-    class Armor : Item
+    interface IBreakable
     {
-        public int Protection { get; set; }
-
+        public int Durability { get; set; }
+        public int MaxDurability { get; set; }
     }
 }

@@ -12,6 +12,7 @@ namespace AppleProject.Classes
         public int Penetration { get; set; }
         public float BleedRate { get; set; }
         public int Speed { get; set; }
+        public int ArmorDamage { get; set; }
         public bool Tracer { get; set; }
         public string Caliber { get; set; }
     }

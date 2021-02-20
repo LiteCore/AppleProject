@@ -9,16 +9,25 @@ namespace AppleProject.Classes
     class Player : Entity
     {
         public List<Item> Inventory { get; set; }
-        private Weapon DefaultWeapon = new() { Name = "Fists", Description = "Your fists.", Rarity = Enums.Rarity.Unique, Damage = 1, Weight = 0 };
-        private Armor DefaultArmor = new() { Name = "No armor", Description = "Naked body.", Protection = 0 };
+        //private Weapon DefaultWeapon = new() { Name = "Fists", Description = "Your fists.", Rarity = Enums.Rarity.Unique, Weight = 0 };
+        //private Armor DefaultArmor = new() { Name = "No armor", Description = "", Protection = 0 };
         public Player()
         {
             Name = "Player";
             Description = "This is you.";
-            Health = 20;
-            Protection = 0;
-            Damage = 0;
+            Body = new Body();
+            random = new Random();
         }
+
+        public void Shoot(Enemy enemy, int distantion, Limb limb = null)
+        {
+            if (Weapon == null)
+                return;
+            if (Weapon.Chamber == null)
+                return;
+            
+        }
+
         public void TakeItem(Item item)
         {
             Inventory.Add(item);
@@ -30,26 +39,26 @@ namespace AppleProject.Classes
         public void EquipWeapon(Weapon weapon)
         {
             Inventory.Remove(weapon);
-            if (Weapon != DefaultWeapon)
+            //if (Weapon != DefaultWeapon)
+            if(this.Weapon != null)
                 Inventory.Add(this.Weapon);
             Weapon = weapon;
-            Damage = weapon.Damage;
+            //Damage = weapon.Damage;
         }
         public void UnequipWeapon()
         {
-            EquipWeapon(DefaultWeapon);
+            EquipWeapon(null);
         }
         public void EquipArmor(Armor armor)
         {
             Inventory.Remove(armor);
-            if (Armor != DefaultArmor)
+            if (Armor != null)
                 Inventory.Add(this.Armor);
             Armor = armor;
-            Protection = armor.Protection;
         }
         public void UnequipArmor()
         {
-            EquipArmor(DefaultArmor);
+            EquipArmor(null);
         }
     }
 }

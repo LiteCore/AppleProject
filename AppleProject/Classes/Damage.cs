@@ -11,6 +11,7 @@ namespace AppleProject.Classes
         public int DamageValue { get; set; }
         public float BleedRate { get; set; }
         public float BrokenBoneRate { get; set; }
-
+        public int Penetration { get; set; }
+        public int ArmorDamageValue { get; set; }
     }
 }

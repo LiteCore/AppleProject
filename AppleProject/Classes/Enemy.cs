@@ -8,5 +8,9 @@ namespace AppleProject.Classes
 {
     class Enemy : Entity
     {
+        public Enemy()
+        {
+            random = new Random();
+        }
     }
 }

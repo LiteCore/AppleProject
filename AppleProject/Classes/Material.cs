@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace AppleProject.Classes
 {
-    interface ITimeBinded
+    class Material
     {
-        public void Update();
+        public string Name { get; set; }
+        public float DestructionModifier { get; set; }
     }
 }

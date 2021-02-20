@@ -28,6 +28,5 @@ namespace AppleProject.Classes
             Chamber = Magazine.RemoveAmmo();
             return oldAmmo;
         }
-
     }
 }
